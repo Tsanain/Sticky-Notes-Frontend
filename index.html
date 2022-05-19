@@ -1,0 +1,99 @@
+<!-- add favicon -->
+<!-- add dark mode toggle -->
+<!-- add animation for add delete-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sticky Notes</title>
+
+    <!-- StyleSheet Files -->
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/library/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/library/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="assets/library/fontawesome/css/fontawesome-all.css">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- JavaScript Files -->
+    <script src="assets/library/jquery/jquery-3.2.1.min.js"></script>
+    <script src="assets/library/bootstrap/js/bootstrap.js"></script>
+    <script src="assets/library/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/add-note.js"></script>
+    <script src="assets/js/remove-note.js"></script>
+
+    <script src="https://kit.fontawesome.com/d7bd7e3ac7.js" crossorigin="anonymous"></script>
+    
+</head>
+<body class="brawl-bg">
+    
+    <button id="toggleDark" class="brawl-bg" onclick=toggleDark()><i class="fa-solid fa-moon fa-2xl green-color" id="icon"></i></button>
+    <!-- Notes Area -->
+    <section class="notes">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="notes-box text-center">
+                        <!-- Sticky Item -->
+                        <div class="col-md-3 float-left note1">
+                            <div class="sticky green-border">
+                                <section class="sticky-header gray-color green-bg green-border text-light">
+                                    <div class="sticky-header-right float-right">
+                                        <a onclick="removenote(1);" class="remove-note">
+                                            <span class="fas fa-lg fa-trash-alt"></span>
+                                        </a>
+                                        
+                                    </div>
+                                    <div class="sticky-header-left float-left">
+                                        <a onclick="addnote();" class="add-note">
+                                            <span class="fas fa-lg fa-plus"></span>
+                                        </a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </section>
+                                <section class="sticky-content">
+                                    <form action="#">
+                                        <textarea id ="textarea-color" placeholder="Enter note here"></textarea>
+                                    </form>
+                                </section>  
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Controller Key -->
+    <section class="controller">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 position-fixed fixed-bottom">
+                    <a onclick="addnote();" class="add-note">
+                        <div class="controller-box text-center red-bg float-left">
+                            <span class="fas fa-lg fa-plus text-light"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var a = document.getElementById("toggleDark");
+        toggleDark = function(){
+            document.body.classList.toggle("dark-theme");
+            if(document.body.classList.contains("dark-theme")){
+                a.innerHTML= '<i class="fa-solid fa-sun fa-2xl green-color"></i>'
+            }else{
+                a.innerHTML='<i class="fa-solid fa-moon fa-2xl  green-color" id="icon"></i>'
+            }
+        }
+    </script>
+    
+
+</body>
+</html>
